@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  app:
+    build: ./app
+    networks:
+      - abyss
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/plebiscite
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 800000
+        hard: 900000
+
+  mongo:
+    image: mongo:3.4.1
+    networks:
+      - abyss
+    volumes:
+      - ./db/mongo:/data/db
+      - /etc/localtime:/etc/localtime:ro
+    expose:
+      - 27017
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 800000
+        hard: 900000
+
+networks:
+  abyss:
+    ipam:
+      driver: default
+      config:
+        - subnet: 254.253.0.0/16
+          ip_range: 254.253.252.0/24
+          gateway: 254.253.252.251

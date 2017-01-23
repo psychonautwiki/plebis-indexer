@@ -1,9 +1,13 @@
-![Plebiscite](/../master/overview.png)
+<h1 align="center">plebiscite</h1>
+
+<h5 align="center">Erowid experience report indexer. Part of the DMT architecture.</h5>
+
+<div align="center"><img src="/../master/grid.png" width="400" /></div>
 
 ~~ MIT License ~~
 
-Copyright (c) 2016 Kenan Sulayman<br/>
-Copyright (c) 2016 The PsychonautWiki Contributors
+Copyright (c) 2017 Kenan Sulayman<br/>
+Copyright (c) 2017 The PsychonautWiki Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,0 +1,21 @@
+{
+    "name": "poc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bluebird": "^3.4.7",
+        "cheerio": "^0.22.0",
+        "mongodb": "^2.2.21",
+        "progress": "^1.1.8",
+        "request": "^2.79.0",
+        "request-promise": "^4.1.1"
+    }
+}
