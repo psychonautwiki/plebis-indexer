@@ -13,6 +13,7 @@
     "dependencies": {
         "bluebird": "^3.4.7",
         "cheerio": "^0.22.0",
+        "level": "^1.5.0",
         "mongodb": "^2.2.21",
         "progress": "^1.1.8",
         "request": "^2.79.0",
