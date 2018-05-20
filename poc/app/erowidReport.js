@@ -81,9 +81,12 @@ class ErowidReport {
 
         const en_regex = /^\[Erowid Note: (.*?)\]$/;
 
-        this._data.erowidNotes = [].slice.call(ctx_body('.erowid-caution').map((i, field) =>
-            this._util_drop_newlines($(field).text()).match(en_regex)[1].trim()
-        ));
+        this._data.erowidNotes = [].slice.call(ctx_body('.erowid-caution').map((i, field) => {
+            const noteText = this._util_drop_newlines($(field).text());
+
+            return en_regex.test(noteText) ? noteText.match(en_regex)[1].trim()
+                                           : noteText.trim();
+        }));
 
         this._data.pullQuotes = [].slice.call(ctx_body('.pullquote-text').map((i, field) =>
             this._util_drop_newlines($(field).text()).trim()
