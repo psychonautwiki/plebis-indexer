@@ -11,12 +11,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "bluebird": "^3.5.0",
+        "bluebird": "^3.5.1",
         "cheerio": "^1.0.0-rc.2",
-        "level": "^1.7.0",
-        "mongodb": "^2.2.31",
+        "iconv": "^2.3.0",
+        "mongodb": "^3.1.0-beta4",
         "progress": "^2.0.0",
-        "request": "^2.81.0",
-        "request-promise": "^4.2.1"
+        "request": "^2.86.0"
     }
 }

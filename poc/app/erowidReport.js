@@ -25,10 +25,10 @@ class ErowidReport {
             'year', 'views', 'age', 'erowidId'
         ]);
 
-        this._conquer_and_divide();
+        this._divide_and_conquer();
     }
 
-    _conquer_and_divide() {
+    _divide_and_conquer() {
         this._extract_general();
         this._extract_substance_info();
         this._extract_body();
@@ -138,7 +138,8 @@ class ErowidReport {
     }
 
     isHidden() {
-        return this._ctx('title').text().split(': ')[1].length === 0;
+        // title is hardcoded when exception occurs
+        return this._ctx('title').text() === 'Erowid Experience Vaults: ';
     }
 
     toJSON() {

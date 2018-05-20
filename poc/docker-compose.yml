@@ -1,30 +1,31 @@
 version: '2'
 
 services:
-  app:
-    build: ./app
-    networks:
-      - abyss
-    environment:
-      - MONGO_URL=mongodb://mongo:27017/plebiscite
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    restart: always
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 800000
-        hard: 900000
+#   app:
+#     build: ./app
+#     networks:
+#       - abyss
+#     environment:
+#       - MONGO_URL=mongodb://mongo:27017/plebiscite
+# #    volumes:
+# #      - /etc/localtime:/etc/localtime:ro
+#     restart: always
+#     ulimits:
+#       nproc: 65535
+#       nofile:
+#         soft: 800000
+#         hard: 900000
 
   mongo:
-    image: mongo:3.4.1
+    image: mongo:3.7.9
     networks:
       - abyss
     volumes:
-      - ./db/mongo:/data/db
-      - /etc/localtime:/etc/localtime:ro
+     - ./db/mongo:/data/db
     expose:
       - 27017
+    ports:
+      - 27017:27017
     restart: always
     ulimits:
       nproc: 65535
