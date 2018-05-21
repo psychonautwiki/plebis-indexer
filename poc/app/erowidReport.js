@@ -3,7 +3,7 @@
 const cheerio = require('cheerio');
 const $ = data => cheerio.load(data);
 
-const td = require('./test');
+const assert = require('assert');
 
 class ErowidReport {
     constructor(source) {
@@ -110,11 +110,47 @@ class ErowidReport {
 
             // The last entry of the meta data table: categorization
             // very rudimentary check for `... (<num>) : ...`
-            // if (is_last_entry && /(.*?) \([0-9]{1,6}\) : (.*?)$/.test(row)) {
-                
+            if (is_last_entry && /(.*?) \([0-9]{1,6}\) : (.*?)$/.test(row)) {
+                const categories_debug_msg = `Categories malformed! ${JSON.stringify(meta_set)}`;
+                const attr_check_extract = str => {
+                    assert(/^\([0-9]{1,6}$/.test(str.slice(str.lastIndexOf('('))), categories_debug_msg);
 
-            //     return;
-            // }
+                    const [attribute, attributeId_raw] = str.split(' (');
+                    
+                    assert(!isNaN(attributeId_raw), categories_debug_msg);
+
+                    const attributeId = parseInt(attributeId_raw, 10);
+
+                    return [attribute, attributeId];
+                };
+
+                const [left, right] = row.split(') : ');
+
+                assert(right !== undefined, categories_debug_msg);
+
+                const [categoryName, categoryId] = attr_check_extract(left);
+
+                const category = {categoryName, categoryId};
+
+                const attributes = [];
+
+                right.split('), ').forEach((attribute_raw, i, items) => {
+                    // the last attribute doesn't have its bracket cut off
+                    const rawText = i + 1 !== items.length ? attribute_raw
+                                                           : attribute_raw.slice(0, -1);
+
+                    const [attributeName, attributeId] = attr_check_extract(rawText);
+
+                    attributes.push({
+                        name: attributeName,
+                        id: attributeId
+                    });
+                });
+
+                meta_set.erowidAttributes = {category, attributes};
+
+                return;
+            }
 
             const [left, right] = row.toLowerCase().split(': ');
 

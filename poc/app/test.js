@@ -13,6 +13,5 @@ reports
     new ErowidReport(fs.readFileSync(a).toString()).toJSON()
 )
 .forEach(a =>
-    // console.log(a)
-    (a)
+    console.log(require('util').inspect(a, {depth: null}))
 );
