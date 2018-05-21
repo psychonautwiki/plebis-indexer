@@ -5,7 +5,7 @@ const fs = require('fs');
 const ErowidReport = require('./erowidReport');
 
 const reports = [
-    'exp103423', 'exp108561'
+    'exp103423', 'exp108561', 'exp243'
 ];
 
 reports

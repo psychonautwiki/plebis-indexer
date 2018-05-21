@@ -128,9 +128,16 @@ class ErowidReport {
 
                 assert(right !== undefined, categories_debug_msg);
 
-                const [categoryName, categoryId] = attr_check_extract(left);
+                const categories = [];
 
-                const category = {categoryName, categoryId};
+                left.split('), ').forEach(category_raw => {
+                    const [categoryName, categoryId] = attr_check_extract(category_raw);
+
+                    categories.push({
+                        name: categoryName,
+                        id: categoryId
+                    });
+                });
 
                 const attributes = [];
 
@@ -147,7 +154,7 @@ class ErowidReport {
                     });
                 });
 
-                meta_set.erowidAttributes = {category, attributes};
+                meta_set.erowidAttributes = {categories, attributes};
 
                 return;
             }
