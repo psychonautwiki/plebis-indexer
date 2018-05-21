@@ -4,10 +4,22 @@
 
 <div align="center"><img src="/../master/grid.png" width="400" /></div>
 
+### WHY WE ARE IGNORING EROWIDS COPYRIGHT NOTICE
+
+> At PsychonautWiki, we believe that information transcends law. We believe that information transcends any human boundary. Everyone has a right to access information.
+
+The information contained in their voluntarily submitted reports can help us protect people by instrumenting data that can be extracted from these reports.
+
+Not only will the information help understanding usage patterns. Through careful correlation of health and usage parameters contextual relationships between substance use and how effects manifest can be derived.
+
+We fundamentally oppose permission-based research. Research shall always be open, transparent and communicated. Research shall never be ceased due to political or strategical goals or opinions.
+
+We will publish any research results openly.
+
 ~~ MIT License ~~
 
-Copyright (c) 2017 Kenan Sulayman<br/>
-Copyright (c) 2017 The PsychonautWiki Contributors
+Copyright (c) 2017, 2018 Kenan Sulayman<br/>
+Copyright (c) 2017, 2018 The PsychonautWiki Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
