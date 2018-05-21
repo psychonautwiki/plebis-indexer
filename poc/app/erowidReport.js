@@ -105,7 +105,17 @@ class ErowidReport {
 
         const meta_set = {};
 
-        meta_rows.forEach(row => {
+        meta_rows.forEach((row, row_i) => {
+            const is_last_entry = meta_rows.length === row_i + 1;
+
+            // The last entry of the meta data table: categorization
+            // very rudimentary check for `... (<num>) : ...`
+            // if (is_last_entry && /(.*?) \([0-9]{1,6}\) : (.*?)$/.test(row)) {
+                
+
+            //     return;
+            // }
+
             const [left, right] = row.toLowerCase().split(': ');
 
             const meta_field_mapping = this._metaMap.get(left);
