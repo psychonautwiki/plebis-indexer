@@ -115,8 +115,12 @@ class ErowidReport {
                 const attr_check_extract = str => {
                     assert(/^\([0-9]{1,6}$/.test(str.slice(str.lastIndexOf('('))), categories_debug_msg);
 
-                    const [attribute, attributeId_raw] = str.split(' (');
-                    
+                    // can't use split because some category names
+                    // include brackets
+                    const bracketIndex = str.lastIndexOf(' (');
+                    const attribute = str.slice(0, bracketIndex).toLowerCase();
+                    const attributeId_raw = str.slice(bracketIndex + 2);
+
                     assert(!isNaN(attributeId_raw), categories_debug_msg);
 
                     const attributeId = parseInt(attributeId_raw, 10);
