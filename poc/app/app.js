@@ -67,9 +67,29 @@ const progress = new Progress(':current / :total :bar', { total: n });
         'meta.published': -1
     });
 
-    // by only date
+    // by only erowidId
     await db_reports.ensureIndex({
         'meta.erowidId': -1
+    });
+
+    // by category name
+    await db_reports.ensureIndex({
+        'meta.erowidAttributes.categories.name': -1
+    });
+
+    // by category id
+    await db_reports.ensureIndex({
+        'meta.erowidAttributes.categories.id': -1
+    });
+
+    // by attribute name
+    await db_reports.ensureIndex({
+        'meta.erowidAttributes.attributes.name': -1
+    });
+
+    // by attribute id
+    await db_reports.ensureIndex({
+        'meta.erowidAttributes.attributes.id': -1
     });
 
     const threadSpawner = (async () => {
