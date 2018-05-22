@@ -4,7 +4,7 @@ const {MongoClient} = require('mongodb');
 const elasticsearch = require('elasticsearch');
 
 const esclient = new elasticsearch.Client({
-    host: 'localhost:9200'
+    host: process.env.ES_HOST || 'localhost:9200'
 });
 
 const wait = ms => new Promise(cb => setTimeout(cb, ms));
@@ -34,7 +34,7 @@ let ntotal = 0;
 })();
 
 (async () => {
-    const client = await MongoClient.connect('mongodb://127.0.0.1:27017');
+    const client = await MongoClient.connect(process.env.MONGO_HOST || 'mongodb://127.0.0.1:27017');
     const db = client.db('plebiscite');
     const reportcoll = db.collection('reports');
 
