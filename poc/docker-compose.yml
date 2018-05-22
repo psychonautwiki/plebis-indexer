@@ -17,7 +17,9 @@ services:
 #         hard: 900000
 
   mongo:
-    image: mongo:3.7.9
+    command: mongod --setParameter failIndexKeyTooLong=false
+#    image: mongo:3.7.9
+    image: mongo:3.6.4
     networks:
       - abyss
     volumes:
@@ -26,6 +28,24 @@ services:
       - 27017
     ports:
       - 27017:27017
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 800000
+        hard: 900000
+
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    networks:
+      - abyss
+    volumes:
+      - ./db/esdata:/usr/share/elasticsearch/data
+    expose:
+      - 9200
+      - 9300
+    ports:
+      - 9200:9200
     restart: always
     ulimits:
       nproc: 65535
