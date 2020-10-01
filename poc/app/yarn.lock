@@ -61,9 +61,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bson@~1.0.4:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/bson/-/bson-1.0.6.tgz#444db59ddd4c24f0cb063aabdc5c8c7b0ceca912"
+bson@^1.1.0:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-1.1.5.tgz#2aaae98fcdf6750c0848b0cba1ddec3c73060a34"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -310,20 +310,22 @@ mime-types@^2.1.12, mime-types@~2.1.17:
   dependencies:
     mime-db "~1.33.0"
 
-mongodb-core@3.1.0-beta4:
-  version "3.1.0-beta4"
-  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.1.0-beta4.tgz#44813da6ee0a61d26f0d523207cfba8ca32e59fc"
+mongodb-core@3.1.11:
+  version "3.1.11"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.1.11.tgz#b253038dbb4d7329f3d1c2ee5400bb0c9221fde5"
   dependencies:
-    bson "~1.0.4"
+    bson "^1.1.0"
     require_optional "^1.0.1"
+    safe-buffer "^5.1.2"
   optionalDependencies:
     saslprep "^1.0.0"
 
 mongodb@^3.1.0-beta4:
-  version "3.1.0-beta4"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.0-beta4.tgz#922cb05c37d04a51ea783569743ef2a893585bfe"
+  version "3.1.13"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.13.tgz#f8cdcbb36ad7a08b570bd1271c8525753f75f9f4"
   dependencies:
-    mongodb-core "3.1.0-beta4"
+    mongodb-core "3.1.11"
+    safe-buffer "^5.1.2"
 
 nan@^2.3.5:
   version "2.10.0"
@@ -414,7 +416,11 @@ resolve-from@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
-safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@^5.1.2:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+
+safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
 
